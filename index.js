@@ -28,7 +28,7 @@ app.use(
 
 // неободимо обработать GET запрос
 app.get('/', async (req, res) => {
-	// перелаваемые параметры
+	// передаваемые параметры
 	res.render('index', {
 		title: 'Express App',
 		notes: await getNotes(),
@@ -40,7 +40,7 @@ app.get('/', async (req, res) => {
 app.post('/', async (req, res) => {
 	await addNote(req.body.title)
 
-	// перелаваемые параметры
+	// передаваемые параметры
 	res.render('index', {
 		title: 'Express App',
 		notes: await getNotes(),
@@ -52,7 +52,7 @@ app.post('/', async (req, res) => {
 app.delete('/:id', async (req, res) => {
 	await removeNote(req.params.id)
 
-	// перелаваемые параметры
+	// передаваемые параметры
 	res.render('index', {
 		title: 'Express App',
 		notes: await getNotes(),
@@ -64,7 +64,7 @@ app.delete('/:id', async (req, res) => {
 app.put('/:id', async (req, res) => {
 	await updateNote({ id: req.params.id, title: req.body.title })
 
-	// перелаваемые параметры
+	// передаваемые параметры
 	res.render('index', {
 		title: 'Express App',
 		notes: await getNotes(),

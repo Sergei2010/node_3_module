@@ -3,7 +3,6 @@ const path = require('path')
 const chalk = require('chalk')
 
 const notesPath = path.join(__dirname, 'db.json')
-console.log(notesPath)
 
 async function addNote(title) {
 	// получил данные
@@ -17,7 +16,7 @@ async function addNote(title) {
 	notes.push(note)
 	// записываю изменения в файл
 	await saveNotes(notes)
-	console.log(chalk.green.inverse('Node was added'))
+	console.log(chalk.bgGreen('Node was added'))
 }
 
 async function getNotes() {
@@ -32,7 +31,7 @@ async function saveNotes(notes) {
 async function printNotes() {
 	const notes = await getNotes()
 
-	console.log(chalk.bgBlue('Here is the list of notes'))
+	console.log(chalk.bgBlue('Here is the list of notes:'))
 	notes.forEach((note) => {
 		console.log(chalk.bgWhite(note.id), chalk.blue(note.title))
 	})
